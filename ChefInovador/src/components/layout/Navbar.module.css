@@ -1,0 +1,67 @@
+/* Define os estilos da navbar */
+.navbar {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center; /* Centraliza os itens verticalmente */
+	background-color: transparent;
+	padding: 1em 2em; /* Aumenta o padding horizontal */
+	z-index: 1000; /* Garante que a navbar fique acima de outros elementos */
+}
+
+/* Define os estilos da lista */
+.list {
+	display: flex;
+	list-style: none;
+	align-items: center;
+	padding: 0;
+	margin: 0;
+}
+
+/* Define os estilos dos itens da lista */
+.item {
+	margin-right: 1em;
+	color: white;
+	font-size: 1.25rem; /* Ajusta o tamanho da fonte para uma unidade responsiva */
+	font-family: system-ui, -apple-system, sans-serif; /* Adiciona uma fonte de fallback */
+	transition: transform 0.5s ease, filter 0.5s ease; /* Adiciona transição para o filtro */
+	font-weight: 800;
+}
+
+/* Define os estilos do item ao passar o mouse */
+.item:hover {
+	filter: drop-shadow(0 0 3px #ffffff8f);
+	transform: scale(1.1);
+	cursor: pointer;
+}
+
+/* Define os estilos do logo */
+.logo {
+	width: 50px;
+	height: 50px;
+	margin-right: 1em;
+}
+
+/* Adiciona uma mídia query para tornar a navbar responsiva */
+@media (max-width: 768px) {
+	.navbar {
+		flex-direction: column;
+	}
+
+	.list {
+		flex-direction: column;
+		align-items: flex-start; /* Alinha os itens da lista à esquerda */
+	}
+
+	.item {
+		margin-right: 0;
+		margin-bottom: 1em; /* Adiciona espaçamento entre os itens */
+	}
+
+	.logo {
+		margin-bottom: 1em; /* Adiciona espaçamento abaixo do logo */
+	}
+}

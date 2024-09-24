@@ -1,0 +1,118 @@
+.createRecipeContainer {
+    background-image: url('./backgroundHome.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px;
+}
+
+form {
+    width: 100%;
+    max-width: 600px;
+    margin-top: 60px;
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    padding: 20px;
+}
+
+.inputGroup {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+label {
+    margin-bottom: 0.5em;
+    font-weight: bold;
+    color: #31c895;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 0.75em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    color: #000000;
+    box-sizing: border-box;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 50px;
+}
+
+.ingredientInput {
+    width: 100%;
+    display: flex;
+    gap: 0.5em;
+}
+
+.ingredientInput input {
+    flex: 1;
+}
+
+.ingredientInput button {
+    padding: 0.75em 1em;
+    border: none;
+    border-radius: 5px;
+    background-color: #31c895;
+    color: white;
+    cursor: pointer;
+}
+
+.ingredientInput button:hover {
+    background-color: #333;
+}
+
+.ingredientList {
+    list-style-type: none;
+    padding: 0;
+    margin: 1em 0 0 0;
+}
+
+.ingredientItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #31c895;
+    margin: 0.5em 0;
+    padding: 0.5em;
+    border-radius: 5px;
+}
+
+.removeButton {
+    width: 30px;
+    height: 30px;
+    padding: 0.25em 0.5em;
+    border: none;
+    border-radius: 50px;
+    background-color: #d9534f;
+    color: white;
+    cursor: pointer;
+}
+
+.removeButton:hover {
+    background-color: #c9302c;
+}
+
+button {
+    padding: 0.75em 1.5em;
+    border: none;
+    border-radius: 5px;
+    background-color: #31c895;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #333;
+}
