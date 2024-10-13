@@ -1,118 +1,76 @@
 .createRecipeContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden; /* Remove barras de rolagem */
     background-image: url('./backgroundHome.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 50px;
 }
 
-form {
-    width: 100%;
-    max-width: 600px;
-    margin-top: 60px;
-    height: 350px;
-    display: flex;
-    flex-direction: column;
-    gap: 1em;
-    padding: 20px;
+.previewContainer h1{
+    color: #31c895;
 }
-
-.inputGroup {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-}
-
-label {
-    margin-bottom: 0.5em;
-    font-weight: bold;
+.previewContainer strong{
     color: #31c895;
 }
 
-input, textarea {
-    width: 100%;
-    padding: 0.75em;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 1rem;
-    color: #000000;
-    box-sizing: border-box;
-}
-
-textarea {
-    resize: vertical;
-    min-height: 50px;
-}
-
-.ingredientInput {
-    width: 100%;
+form {
+    width: 400px;
+    height: 650px;
     display: flex;
-    gap: 0.5em;
+    flex-direction: column;
+    position: absolute;
+    left: 600px;
+    top: 110px;
+    gap: 1.5em;
+    padding: 50px;
+    border: 0;
 }
 
-.ingredientInput input {
-    flex: 1;
-}
 
-.ingredientInput button {
-    padding: 0.75em 1em;
-    border: none;
-    border-radius: 5px;
-    background-color: #31c895;
-    color: white;
-    cursor: pointer;
-}
-
-.ingredientInput button:hover {
-    background-color: #333;
-}
-
-.ingredientList {
-    list-style-type: none;
-    padding: 0;
-    margin: 1em 0 0 0;
-}
-
-.ingredientItem {
+.previewContainer {
+    width: 400px;
+    height: 650px;
     display: flex;
-    justify-content: space-between;
+    position: absolute;
+    right: 450px;
+    top: 50px;
+    padding: 50px;
+    background-color: transparent;
+    color: black;
+    gap: 1em;
+}
+
+.previewContainer h2 {
+    margin-bottom: 20px;
+}
+
+.previewContainer p {
+    margin: 15px 0;
+}
+
+button{
+    padding: 10px;
+    margin-left: 35px;
+    display: flex;
+    width: 150px;
+    height: 50px;
+    border: 3px solid #31c895;
+    background-color: transparent;
+    color: #31c895;
+    font-size: 18px;
+    text-align: center;
     align-items: center;
-    background-color: #31c895;
-    margin: 0.5em 0;
-    padding: 0.5em;
-    border-radius: 5px;
+    justify-content: center;
+    border-radius: 10px;
 }
 
-.removeButton {
-    width: 30px;
-    height: 30px;
-    padding: 0.25em 0.5em;
-    border: none;
-    border-radius: 50px;
-    background-color: #d9534f;
-    color: white;
-    cursor: pointer;
-}
-
-.removeButton:hover {
-    background-color: #c9302c;
-}
-
-button {
-    padding: 0.75em 1.5em;
-    border: none;
-    border-radius: 5px;
-    background-color: #31c895;
-    color: white;
-    font-size: 1rem;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-button:hover {
-    background-color: #333;
+button:hover{
+    background-color: #31c896ae;
+    color: #ffffff;
 }

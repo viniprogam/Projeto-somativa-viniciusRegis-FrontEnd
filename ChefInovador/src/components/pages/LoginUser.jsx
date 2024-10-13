@@ -1,6 +1,6 @@
 import React from 'react';
-import Input from '../Input';
-import Button from '../Button';
+import Input from '../forms/Input';
+import Button from '../forms/Button';
 import styles from './LoginUser.module.css'
 
 const LoginUser = () => {
