@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react';
-
 import styles from './CreateRecipe.module.css';
 
 import Input from '../forms/Input';
 import Select from '../forms/Select';
 import Button from '../forms/Button';
 import TextArea from '../forms/TextArea';
+import { useNavigate } from 'react-router-dom';
 
 const CreateRecipe = () => {
+
+    const navigate = useNavigate();
 
     /* DEFINE O STATE DE DADOS DAS CATEGORIAS */
     const [categorias, setCategorias] = useState([]);
@@ -79,6 +81,11 @@ const CreateRecipe = () => {
         });
     }, []);
 
+    /*FUNÇÃO PARA PEGAR O CÓDIGO DA CATEGORIA SELECIONADA*/
+    function handlerChangeCategory(event) {
+        setRecipe({...recipe, cod_categoria: event.target.value});
+    }
+
     /* INSERÇÃO DOS DADOS DA RECEITA */
     function createRecipe(recipe) {
 
@@ -101,7 +108,8 @@ const CreateRecipe = () => {
             (data) => {
                 setRecipe(initialRecipeState);
                 setIngredients(['']);
-                alert('Receita cadastrada com sucesso!');
+                // alert('Receita cadastrada com sucesso!');
+                navigate('/ListRecipe', {state:'RECEITA CADASTRADA COM SUCESSO'})
             }
         )
         .catch(
@@ -135,7 +143,7 @@ const CreateRecipe = () => {
                         <div className={styles.ingredientInput}>
                             <Input
                                 type="text"
-                                name="currentIngredient"
+                                name="ingredientes"
                                 placeHolder="Digite um ingrediente"
                                 text='Ingredientes'
                                 value={currentIngredient} /**VALOR DO INPUT É CONTROLADO PELO ESTADO */
@@ -161,6 +169,7 @@ const CreateRecipe = () => {
                             text='Escolha a categoria de sua receita'
                             options={categorias}
                             required
+                            handlerChangeCategory={handlerChangeCategory}
                         />
                     </div>
 

@@ -1,0 +1,22 @@
+.buttonContainerDetail{
+    width: 100px;
+    margin-right: 80px;
+    margin-top: 10px;
+}
+.buttonContainerDetail button{
+    padding: 10px;
+    display: flex;
+    width: 100px;
+    height: 30px;
+    border: 3px solid #31c895;
+    background-color: transparent;
+    color: #31c895;
+    font-size: 18px;
+    text-align: center;
+    border-radius: 8px;
+}
+
+.buttonContainerDetail button:hover{
+    background-color: #31c896ae;
+    color: #ffffff;
+}
