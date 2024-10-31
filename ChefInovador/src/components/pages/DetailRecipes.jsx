@@ -52,6 +52,14 @@ const DetailRecipe = () => {
                     <p>{recipe.modo_de_preparo}</p>
                 </div>
             </div>
+            <div className={style.buttonArea}>
+                <div className={style.buttonDelete}>
+                    <Button label='Deletar'/>
+                </div>
+                <div className={style.buttonDelete}>
+                    <Button label='Editar'/>
+                </div>
+            </div>
         </div>
     )
 

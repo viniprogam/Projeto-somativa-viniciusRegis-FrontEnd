@@ -60,3 +60,8 @@
 	border-radius: 10px;
 	box-shadow: 0 4px 8px #00000033;
 }
+
+.buttonArea{
+	display: flex;
+	flex-direction: row;
+}
