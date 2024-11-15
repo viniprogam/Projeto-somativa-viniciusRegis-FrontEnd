@@ -5,11 +5,14 @@ import Input from '../forms/Input';
 import Select from '../forms/Select';
 import Button from '../forms/Button';
 import TextArea from '../forms/TextArea';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
-const CreateRecipe = () => {
+const UpdateRecipe = () => {
 
     const navigate = useNavigate();
+
+    /* RECUPERA O CODIGO ENVIADO PELO BOTÃO */
+    const { cod_receita } = useParams();
 
     /* DEFINE O STATE DE DADOS DAS CATEGORIAS */
     const [categorias, setCategorias] = useState([]);
@@ -86,42 +89,62 @@ const CreateRecipe = () => {
         setRecipe({...recipe, cod_categoria: event.target.value});
     }
 
-    /* INSERÇÃO DOS DADOS DA RECEITA */
-    function createRecipe(recipe) {
+    /* ALTERAÇÃO DOS DADOS DA RECEITA */
+    function UpdateRecipe(recipe) {
+        
+        console.log(JSON.stringify(recipe))
 
-        console.log(JSON.stringify(recipe));
-
-        fetch('http://localhost:5000/inserirReceita', {
-            method: 'POST',
-            mode: 'cors',
-            headers: {
-                'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin': '*',
-                'Access-Control-Allow-Headers': '*'
-            },
-            body: JSON.stringify(recipe)
+        fetch('http://localhost:5000/alterarReceita', {
+                method:'PUT',
+                mode:'cors',
+                headers:{
+                'Content-Type':'application/json',
+                'Access-Control-Allow-Origin':'*',
+                'Access-Control-Allow-Headers':'*'
+                },
+                body: JSON.stringify(recipe)
         })
         .then(
-            (resp) => resp.json()
+                (resp)=>resp.json()
         )
         .then(
-            (data) => {
-                setRecipe(initialRecipeState);
-                setIngredients(['']);
-                // alert('Receita cadastrada com sucesso!');
-                navigate('/ListRecipe', {state:'RECEITA CADASTRADA COM SUCESSO'})
-            }
+                (data)=>{
+                        console.log(data);
+                        navigate('/ListRecipe',{state:'RECEITA ALTEARADA COM SUCESSO!'});
+                }
         )
         .catch(
-            (err) => {console.log(err);}
-        );
-    };
+                (err)=>{ console.log(err) }
+        )
+}
 
     /* FUNÇÃO DE SUBMIT */
     function submit(event) {
         event.preventDefault();
-        createRecipe(recipe);
+        UpdateRecipe(recipe);
     };
+
+    /*RECUPERA OS DADOS DO LIVRO DO BACKEND */
+    useEffect(()=>{
+        fetch(`http://localhost:5000/listagemReceita/${cod_receita}`, {
+            method: 'GET',
+                mode:'cors',
+                headers:{
+                        'Content-Type':'application/json',
+                        'Access-Control-Allow-Origin': '*',
+                        'Access-Control-Allow-Headers': '*'
+                },
+                })
+                .then((resp)=>resp.json())
+                .then((data)=>{
+                        console.log('RECEITAS: ' + data.data.cod_receita);
+                        setRecipe(data.data);
+                        console.log('STATE: ' + recipe.nome_receita);
+                })
+                .catch((err)=>{console.log(err)});
+
+        }, [])
+
 
     return (
         <>
@@ -183,11 +206,11 @@ const CreateRecipe = () => {
                 <h1>RECEITA</h1>
                 <p><strong>Título:</strong> {recipe.nome_receita}</p>
                 <p><strong>Ingredientes:</strong> {recipe.ingredientes}</p>
-                <pre><strong>Modo de Preparo:</strong> {recipe.modo_de_preparo}</pre>
+                <p><strong>Modo de Preparo:</strong> {recipe.modo_de_preparo}</p>
             </section>
         </>
     
     );
 };
 
-export default CreateRecipe;
+export default UpdateRecipe;

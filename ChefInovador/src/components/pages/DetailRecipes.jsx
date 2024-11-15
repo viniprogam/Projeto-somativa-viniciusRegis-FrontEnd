@@ -52,12 +52,21 @@ const DetailRecipe = () => {
                     <p>{recipe.modo_de_preparo}</p>
                 </div>
             </div>
+            
             <div className={style.buttonArea}>
                 <div className={style.buttonDelete}>
-                    <Button label='Deletar'/>
+                    <Button
+                        label='Editar'
+                        router='/UpdateRecipe/'
+                        cod_receita={cod_receita}
+                    />
                 </div>
                 <div className={style.buttonDelete}>
-                    <Button label='Editar'/>
+                    <Button
+                        label='Deletar'
+                        router='/DeleteRecipe/'
+                        cod_receita={cod_receita}
+                    />
                 </div>
             </div>
         </div>

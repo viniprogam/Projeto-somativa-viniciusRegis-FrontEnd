@@ -9,6 +9,8 @@ export default function TextArea({text, name, placeHolder, handleChange, require
                 placeholder={placeHolder}
                 onChange={handleChange}
                 required={required}
+                rows="3"
+                cols="33"
             />
         </div>
     )
